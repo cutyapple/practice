@@ -1,4 +1,4 @@
-<!--사용자 입력 핸들링 (2)-->
+<!--Vue 인스턴스 만들기 (3)-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,17 +9,22 @@
 </head>
 <body>
     <div id="app">
-       <p>{{message}}</p> 
-       <input v-model="message">
-    </div>
+        <p>{{ foo }}</p>
+        <!-- obj.foo는 더이상 변하지 않음. -->
+        <button v-on:click="foo = 'baz'">Change it</button>
+      </div>
     
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
-        var app = new Vue({
+        var obj = {
+            foo: 'bar'
+        }
+
+        Object.freeze(obj)
+
+        new Vue({
             el: '#app',
-            data: {
-                message: 'Hello, Vue!'
-            }
+            data: obj
         })
     </script>
 </body>
