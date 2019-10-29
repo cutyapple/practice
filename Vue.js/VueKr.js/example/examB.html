@@ -20,6 +20,7 @@
         <h2>체크박스 (input - checkbox)</h2>
         <input type="checkbox" id="checkbox" v-model="checked">
         <label for="checkbox">{{ checked }}</label>
+
         <h3>체크박스 예시2</h3>
         <div id="checkDiv">
             <input type="checkbox" id="cuty" value="Cuty" v-model="checkName">
@@ -47,6 +48,17 @@
             <option>B</option>
             <option>C</option>
         </select>
+        <br>
+        <span>선택함 : {{ selected }}</span>
+
+        <h3>셀렉트 예시2</h3>
+        <select v-model="selected2" multiple>
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+        </select>
+        <br>
+        <span>선택함 : {{ selected2 }}</span>
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -59,6 +71,8 @@
                 checked: false,
                 checkName: [],
                 picked: '',
+                selected: '',
+                selected2: [],
             }
         })
     </script>
