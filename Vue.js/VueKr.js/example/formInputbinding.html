@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>기본 사용법</h1>
+        <h2>문자열 (input - text)</h2>
+        <input v-model="message1" placeholder="여기를 수정해보세요">
+        <p>메시지: {{ message1 }}</p>
+
+        <h2>여러줄을 가진 문장 (textarea)</h2>
+        <span>여러 줄을 가지는 메시지</span>
+        <p style="white-space: pre-line;">{{ message2 }}</p>
+        <textarea v-model="message2" placeholder="여러줄을 입력해보세요"></textarea>
+
+        <h2>체크박스 (input - checkbox)</h2>
+        <input type="checkbox" id="checkbox" v-model="checked">
+        <label for="checkbox">{{ checked }}</label>
+
+        <h3>체크박스 예시2</h3>
+        <div id="checkDiv">
+            <input type="checkbox" id="cuty" value="Cuty" v-model="checkName">
+            <label for="cuty">Cuty</label>
+            <input type="checkbox" id="apple" value="Apple" v-model="checkName">
+            <label for="aple">Apple</label>
+            <input type="checkbox" id="dmi" value="Dmi" v-model="checkName">
+            <label for="dmi">Dmi</label>
+            <br>
+            <span>체크한 이름 : {{ checkName }}</span>
+        </div>
+
+        <h2>라디오 (input - radio)</h2>
+        <input type="radio" id="one" value="One" v-model="picked">
+        <label for="one">One</label>
+        <input type="radio" id="two" value="Two" v-model="picked">
+        <label for="two">Two</label>
+        <br>
+        <span>선택 : {{ picked }}</span>
+
+        <h2>셀렉트 (select)</h2>
+        <select v-model="selected">
+            <option disabled value="">Please select One</option>
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+        </select>
+        <br>
+        <span>선택함 : {{ selected }}</span>
+
+        <h3>셀렉트 예시2</h3>
+        <select v-model="selected2" multiple>
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+        </select>
+        <br>
+        <span>선택함 : {{ selected2 }}</span>
+
+        <h3>셀렉트 예시3</h3>
+        <select v-model="selected3">
+            <option v-for="option in options" v-bind:value="option.value">
+                {{ option.text }}
+            </option>
+        </select>
+        <span>Selected : {{ selected3 }}</span>
+
+        <h1>값 바인딩하기</h1>
+        <h2>바인딩 예제</h2>
+        <input type="radio" v-model="picked1" value="a">
+        <input type="checkbox" v-model="toggle">
+        <select v-model="Selected4">
+            <option value="abc">ABC</option>
+        </select>
+        <br>
+        <span>picked1 : {{ picked1 }}</span>
+        <br>
+        <span>toggle : {{ toggle }}</span>
+        <br>
+        <span>selected4 : {{ selected4 }}</span>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message1: '',
+                message2: '',
+                checked: false,
+                checkName: [],
+                picked: '',
+                picked1: '',
+                selected: '',
+                selected2: [],
+                selected3: '',
+                selected4: '',
+                toggle: '',
+                options:[
+                    { text:'One', value:'A' },
+                    { text:'Two', value:'B' },
+                    { text:'Three', value:'C' },
+                ]
+            }
+        })
+    </script>
+</body>
+</html>
